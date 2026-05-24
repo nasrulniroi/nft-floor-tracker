@@ -1,0 +1,11 @@
+{
+  "opensea": {
+    "api": "https://api.opensea.io"
+  },
+  "blur": {
+    "api": "https://api.blur.finance"
+  },
+  "magiceden": {
+    "api": "https://api.magiceden.io"
+  }
+}
