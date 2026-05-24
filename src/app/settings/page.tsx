@@ -1,26 +1,26 @@
-'use client';
-import { useState } from 'react';
-import Header from '@/components/Header';
-import Sidebar from '@/components/Sidebar';
-
-export default function SettingsPage() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+"use client"
+export default function Settings() {
   return (
-    <div className="flex min-h-screen">
-      <Sidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
-      <main className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-20'}`}>
-        <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
-        <div className="p-6 space-y-6 max-w-2xl">
-          <h1 className="text-2xl font-bold">Settings</h1>
-          <div className="card space-y-4">
-            <h2 className="text-lg font-semibold">Appearance</h2>
-            <div className="flex items-center justify-between">
-              <span className="text-dark-300">Theme</span>
-              <select className="input"><option>Dark</option><option>Light</option></select>
-            </div>
+    <div className="space-y-6">
+      <h1 className="text-3xl font-bold">Settings</h1>
+      <div className="card">
+        <h3 className="text-lg font-semibold mb-4">Configuration</h3>
+        <div className="space-y-4">
+          <div>
+            <label className="text-sm text-[var(--muted)]">RPC Endpoint</label>
+            <input type="text" className="w-full mt-1 bg-[var(--surface2)] border border-[var(--border)] rounded-lg px-4 py-2 text-[var(--fg)]" placeholder="https://..." />
           </div>
+          <div>
+            <label className="text-sm text-[var(--muted)]">Refresh Interval</label>
+            <select className="w-full mt-1 bg-[var(--surface2)] border border-[var(--border)] rounded-lg px-4 py-2 text-[var(--fg)]">
+              <option>30 seconds</option>
+              <option>1 minute</option>
+              <option>5 minutes</option>
+            </select>
+          </div>
+          <button className="btn">Save Settings</button>
         </div>
-      </main>
+      </div>
     </div>
-  );
+  )
 }
